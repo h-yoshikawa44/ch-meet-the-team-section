@@ -290,6 +290,11 @@ a {
   .meet-section .action__see-all-members-button {
     font-size: 1rem;
   }
+
+  .meet-section .action__see-all-members-button img {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 @media (width >= 1280px) {

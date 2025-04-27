@@ -20,7 +20,9 @@
   --text-color-team: var(--blue);
   --text-color-header: var(--black);
   --text-color-sub: var(--black-lighen);
-  --text-color-member: var(--white) /* font */;
+  --text-color-member: var(--white);
+
+  /* font */
   --font-base: 'Outfit', system-ui, 'Avenir', 'Helvetica', 'Arial', sans-serif;
 }
 
@@ -89,6 +91,8 @@ a {
     url('/images/Background_decor.svg'),
     url('/images/Background_decor@2x.png') 2x
   );
+  background-repeat: no-repeat;
+  background-size: 60% 15%;
   border-radius: 28px;
 }
 
@@ -209,6 +213,7 @@ a {
   .meet-section {
     grid-template-rows: repeat(3, 284px);
     grid-template-columns: repeat(3, 288px);
+    background-size: 26% 47%;
   }
 
   .meet-section .header {
@@ -291,6 +296,7 @@ a {
   .meet-section {
     grid-template-rows: repeat(2, 288px);
     grid-template-columns: repeat(4, 284px);
+    background-size: 20% 70%;
   }
 
   .meet-section .header {

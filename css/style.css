@@ -1,101 +1,349 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-  color: rgb(255 255 255 / 87%);
-  color-scheme: light dark;
-  background-color: #242424;
+  --black: #000;
+  --black-lighen: #394150;
+  --white-darken: #f3f4f6;
+  --white: #fffefe;
+  --blue: #263fa9;
+  --green: #86e7d4;
+  --sky: #9dc4f8;
+  --purple: #c1b6f8;
+  --pink: #edacd2;
+  --orange: #f8d8b0;
+
+  /* color map */
+  --bg-color-section: var(--white-darken);
+  --bg-color-first: var(--purple);
+  --bg-color-second: var(--pink);
+  --bg-color-third: var(--sky);
+  --bg-color-fourth: var(--orange);
+  --bg-color-fifth: var(--green);
+  --text-color-team: var(--blue);
+  --text-color-header: var(--black);
+  --text-color-sub: var(--black-lighen);
+  --text-color-member: var(--white);
+
+  /* font */
+  --font-base: 'Outfit', system-ui, 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
+html,
+body {
+  font-family: var(--font-base);
   font-synthesis: none;
   text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
 
-a:hover {
-  color: #535bf2;
-}
+/* common
+-------------------- */
 
-body {
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  margin: 0;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  padding: 2rem;
+.container {
+  max-width: 640px;
+  padding: 0 3.25%;
   margin: 0 auto;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  transition: filter 300ms;
-  will-change: filter;
+@media (width >= 1024px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    max-width: 1024px;
+    padding: 0 3.5%;
+  }
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+@media (width >= 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
 
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+/* main
+-------------------- */
+
+.main {
+  padding: 32px 0;
 }
 
-.card {
-  padding: 2em;
+.meet-section {
+  display: grid;
+  grid-template-rows: 448px repeat(6, 612px);
+  background-color: var(--bg-color-section);
+
+  /*
+    ref: https://developer.mozilla.org/ja/docs/Web/CSS/image/image-set
+    課題から提供されている画像だと、デザイン上の背景画像よりサイズが小さく再現できない...。
+  */
+
+  /* image-set 非対応ブラウザ時のフォールバック */
+  background-image: url('/images/Background_decor.svg');
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  background-image: image-set(
+    url('/images/Background_decor.svg'),
+    url('/images/Background_decor@2x.png') 2x
+  );
+  background-repeat: no-repeat;
+  background-size: 60% 15%;
+  border-radius: 28px;
 }
 
-.read-the-docs {
-  color: #888;
+.meet-section .header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 48px 52px 0;
 }
 
-button {
-  padding: 0.6em 1.2em;
-  font-family: inherit;
-  font-size: 1em;
+.meet-section .header__team {
+  font-size: 1.5rem;
   font-weight: 500;
-  cursor: pointer;
-  background-color: #1a1a1a;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  transition: border-color 0.25s;
+  color: var(--text-color-team);
 }
 
-button:hover {
-  border-color: #646cff;
+.meet-section .header__title {
+  font-size: 3.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-color-header);
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.meet-section .header__description {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--text-color-sub);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #fff;
+.meet-section .member-view {
+  position: relative;
+}
+
+.meet-section .member-view-first {
+  background-color: var(--bg-color-first);
+}
+
+.meet-section .member-view-second {
+  background-color: var(--bg-color-second);
+}
+
+.meet-section .member-view-third {
+  background-color: var(--bg-color-third);
+}
+
+.meet-section .member-view-fourth {
+  background-color: var(--bg-color-fourth);
+}
+
+.meet-section .member-view-fifth {
+  background-color: var(--bg-color-fifth);
+}
+
+.meet-section .member-view__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meet-section .member-view__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 0 76px 52px;
+  color: var(--text-color-member);
+  background: linear-gradient(
+    180deg,
+    rgb(217 217 217 / 0%) 0%,
+    rgb(0 0 0 / 80%) 100%
+  );
+}
+
+.meet-section .member-view__info-name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.meet-section .member-view__info-job {
+  font-size: 1.5rem;
+}
+
+.meet-section .action {
+  position: relative;
+}
+
+.meet-section .action__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 48px 52px;
+}
+
+.meet-section .action__see-all-members-button {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-color-sub);
+  background-color: transparent;
+  border: none;
+  border-radius: 28px;
+}
+
+.meet-section .action__see-all-members-button:hover,
+.meet-section .action__see-all-members-button:focus {
+  background-color: rgb(0 0 0 / 10%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.meet-section .action__see-all-members-button img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 4px;
+}
+
+@media (width >= 1024px) {
+  .main {
+    padding: 72px 0;
   }
 
-  a:hover {
-    color: #747bff;
+  .meet-section {
+    grid-template-rows: repeat(3, 284px);
+    grid-template-columns: repeat(3, 288px);
+    background-size: 26% 47%;
   }
 
-  button {
-    background-color: #f9f9f9;
+  .meet-section .header {
+    grid-row: 1/ 2;
+    grid-column: 1 / 3;
+    row-gap: 4px;
+    padding: 36px 60px 0 32px;
+  }
+
+  .meet-section .header__team {
+    font-size: 1rem;
+  }
+
+  .meet-section .header__title {
+    font-size: 2.5rem;
+    line-height: 1.4;
+  }
+
+  .meet-section .header__description {
+    font-size: 1rem;
+  }
+
+  .meet-section .member-view-first {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .meet-section .member-view-second {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .meet-section .member-view-third {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+  }
+
+  .meet-section .member-view-fourth {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  .meet-section .member-view-fifth {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    border-bottom-right-radius: 28px;
+  }
+
+  .meet-section .member-view__info {
+    padding: 0 0 24px 24px;
+  }
+
+  .meet-section .member-view-fifth .member-view__info {
+    border-bottom-right-radius: 28px;
+  }
+
+  .meet-section .member-view__info-name {
+    font-size: 1.25rem;
+  }
+
+  .meet-section .member-view__info-job {
+    font-size: 1rem;
+  }
+
+  .meet-section .action {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .meet-section .action__info {
+    padding: 24px 32px;
+  }
+
+  .meet-section .action__see-all-members-button {
+    font-size: 1rem;
+  }
+
+  .meet-section .action__see-all-members-button img {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media (width >= 1280px) {
+  .meet-section {
+    grid-template-rows: repeat(2, 288px);
+    grid-template-columns: repeat(4, 284px);
+    background-size: 20% 70%;
+  }
+
+  .meet-section .header {
+    grid-row: 1/ 2;
+    grid-column: 1 / 3;
+  }
+
+  .meet-section .member-view-first {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+  }
+
+  .meet-section .member-view-second {
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    border-top-right-radius: 28px;
+  }
+
+  .meet-section .member-view-third {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .meet-section .member-view-fourth {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+  }
+
+  .meet-section .member-view-fifth {
+    grid-row: 2 / 3;
+    grid-column: 4 / 5;
+  }
+
+  .meet-section .action {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
   }
 }

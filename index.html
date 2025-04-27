@@ -11,11 +11,114 @@
       content="devChallenges.io - Meet the Team Section | by h-yoshikawa44"
     />
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app">
-      <h1>Vite App</h1>
-    </div>
+    <main class="main">
+      <div class="container">
+        <section class="meet-section">
+          <header class="header">
+            <p class="header__team">Our team</p>
+            <h1 class="header__title">Meet the brain</h1>
+            <p class="header__description">
+              We are proud to have them as part of our community and look
+              forward to continuing to push the boundaries of what's possible in
+              the world of digital art.
+            </p>
+          </header>
+          <div class="member-view member-view-first">
+            <img
+              class="member-view__img"
+              srcset="/images/person_1.png 1x, /images/person_1@2x.png 2x"
+              src="/images/person_1.png"
+              alt="Liam Novak"
+              width="426"
+              height="432"
+            />
+            <div class="member-view__info">
+              <em class="member-view__info-name">Liam Novak</em>
+              <p class="member-view__info-job">Software Engineer</p>
+            </div>
+          </div>
+          <div class="member-view member-view-second">
+            <img
+              class="member-view__img"
+              srcset="/images/person_2.png 1x, /images/person_2@2x.png 2x"
+              src="/images/person_2.png"
+              alt="Sophia Moretti"
+              width="426"
+              height="432"
+            />
+            <div class="member-view__info">
+              <em class="member-view__info-name">Sophia Moretti</em>
+              <p class="member-view__info-job">Business Development Manager</p>
+            </div>
+          </div>
+          <div class="member-view member-view-third">
+            <img
+              class="member-view__img"
+              srcset="/images/person_3.png 1x, /images/person_3@2x.png 2x"
+              src="/images/person_3.png"
+              alt="Ethan Rossi"
+              width="426"
+              height="432"
+            />
+            <div class="member-view__info">
+              <em class="member-view__info-name">Ethan Rossi</em>
+              <p class="member-view__info-job">Business Development Manager</p>
+            </div>
+          </div>
+          <div class="member-view member-view-fourth">
+            <img
+              class="member-view__img"
+              srcset="/images/person_4.png 1x, /images/person_4@2x.png 2x"
+              src="/images/person_4.png"
+              alt="Isabella Ricci"
+              width="426"
+              height="432"
+            />
+            <div class="member-view__info">
+              <em class="member-view__info-name">Isabella Ricci</em>
+              <p class="member-view__info-job">UX Designer</p>
+            </div>
+          </div>
+          <div class="member-view member-view-fifth">
+            <img
+              class="member-view__img"
+              srcset="/images/person_5.png 1x, /images/person_5@2x.png 2x"
+              src="/images/person_5.png"
+              alt="Noah Conti"
+              width="426"
+              height="432"
+            />
+            <div class="member-view__info">
+              <em class="member-view__info-name">Noah Conti</em>
+              <p class="member-view__info-job">Content Creator</p>
+            </div>
+          </div>
+          <div class="action">
+            <div class="action__info">
+              <button class="action__see-all-members-button" type="button">
+                See all members
+                <img
+                  src="./images/arrow_up_right.svg"
+                  alt=""
+                  width="16"
+                  height="16"
+                />
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

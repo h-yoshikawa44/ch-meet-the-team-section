@@ -3,8 +3,9 @@ on:
   workflow_call:
   push:
     branches-ignore:
-      # TODO production.yml の方で制御するので main ブランチは除外
+      # production.yml の方で制御するので main ブランチは除外
       - main
+      - gh-pages
 
 jobs:
   check:

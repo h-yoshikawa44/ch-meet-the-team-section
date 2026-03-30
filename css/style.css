@@ -76,7 +76,7 @@ a {
 
 .meet-section {
   display: grid;
-  grid-template-rows: 448px repeat(6, 612px);
+  grid-template-rows: 548px repeat(6, 612px);
   background-color: var(--bg-color-section);
 
   /*
